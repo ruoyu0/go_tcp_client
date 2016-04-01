@@ -36,17 +36,11 @@ go语言 net包API：[http://studygolang.com/static/pkgdoc/pkg/net.htm](http://s
 * 在网络network上连接地址address，并返回一个Conn接口。可用的网络类型有：
 * "tcp"、"tcp4"、"tcp6"、"udp"、"udp4"、"udp6"、"ip"、"ip4"、"ip6"、"unix"、"unixgram"、"unixpacket"
 * 对TCP和UDP网络，地址格式是host:port或[host]:port，参见函数JoinHostPort和SplitHostPort。
-
-
     Dial("tcp", "12.34.56.78:80")
     Dial("tcp", "google.com:http")
     Dial("tcp", "[2001:db8::1]:http")
     Dial("tcp", "[fe80::1%lo0]:80")
-
-* 对IP网络，network必须是"ip"、"ip4"、"ip6"后跟冒号和协议号或者协议名，地址必须是IP地址字面值。
-
-
+* 对IP网络，network必须是"ip"、"ip4"、"ip6"后跟冒号和协议号或者协议名，地址必须是IP地址字面值。  
     Dial("ip4:1", "127.0.0.1")
     Dial("ip6:ospf", "::1")
-
 * 对Unix网络，地址必须是文件系统路径。
