@@ -22,13 +22,23 @@ func main() {
 	conn, err := net.Dial("tcp", hostAndPort)
 	checkError(err, "Dial:")
 	fmt.Println("连接成功...")
+
+	//send message
 	fmt.Println("发送数据:" + msgSend)
 	conn.Write([]byte(msgSend))
+
+	//recv message
 	var ibuf []byte = make([]byte, maxRead+1)
 	length, err := conn.Read(ibuf[0:maxRead])
 	checkError(err, "Read:")
+
+	//print
 	ibuf[maxRead] = 0 //防止overflow
 	fmt.Printf("接收数据: %v\n", string(ibuf[0:length]))
+
+	//关闭Conn接口
+	err := conn.Close()
+	checkError(err, "Close:")
 }
 
 //错误检查，
